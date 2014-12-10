@@ -1,7 +1,7 @@
 config.trophyslots.startingSlots=The number of slots a player starts with.
 config.trophyslots.unlockAchieve=Allows you to unlock slots by completing achievements.
 config.trophyslots.canUseTrophy=Allows you to unlock slots using trophies.
-config.trophyslots.canBuyTrophy=Allows you to buy trophies from villagers. Disabling this will disable any trophies bought from villagers!
+config.trophyslots.canBuyTrophy=Allows you to buy trophies from villagers. Disabling this will disable any trophies bought from villagers! (DOES NOT WORK IN 1.8)
 config.trophyslots.disable3=Disables slot unlocking for the first 3 vanilla achievements.
 config.trophyslots.update=Enable checking for updates
 
