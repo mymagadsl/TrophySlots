@@ -2,6 +2,8 @@ package net.lomeli.trophyslots.core;
 
 import org.lwjgl.input.Keyboard;
 
+import java.util.List;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -10,6 +12,7 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.StatCollector;
 
 import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.common.registry.GameData;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -125,14 +128,24 @@ public class SimpleUtil {
     public static String nameFromStack(ItemStack stack) {
         try {
             GameRegistry.UniqueIdentifier modUID = GameRegistry.findUniqueIdentifierFor(stack.getItem());
-            String modname = modUID == null ? "Minecraft" : modUID.name;
+            ModContainer mod = getModContainer(modUID.modId);
+            String modname = mod == null ? "Minecraft" : mod.getName();
             return modname;
         } catch (NullPointerException var3) {
             return "";
         }
     }
 
-    
+    public static ModContainer getModContainer(String modid) {
+        List<ModContainer> modList = Loader.instance().getModList();
+        if (modList != null && !modList.isEmpty()) {
+            for (ModContainer mod : modList) {
+                if (mod != null && mod.getModId().equals(modid))
+                    return mod;
+            }
+        }
+        return null;
+    }
 
     public static boolean safeKeyDown(int keyCode) {
         try {

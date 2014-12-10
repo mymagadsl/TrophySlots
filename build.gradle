@@ -38,7 +38,7 @@ repositories {
 }
 
 dependencies {
-    compile "codechicken:NotEnoughItems:$mcVersion-$neiVersion:dev"
+    compile "codechicken:NotEnoughItems:$neiVersion:dev"
 }
 
 group = "$modGroup"
@@ -47,7 +47,8 @@ version = "$releaseVersion"
 
 minecraft {
     version = "$mcVersion-$forgeVersion" // grab latest forge
-    runDir = "build/vanilla/assets"
+    runDir = "eclipse"
+    mappings = "snapshot_20141209"
 }
 
 processResources {
@@ -67,6 +68,6 @@ jar {
     manifest {
         attributes 'FMLAT' : 'trophyslots_at.cfg'
     }
-	appendix = "$mcVersion"
+    appendix = "$mcVersion"
     classifier = "universal"
 }

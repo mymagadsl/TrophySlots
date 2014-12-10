@@ -151,8 +151,8 @@ public class EventHandlerClient {
         for (int i = 0; i < list.size(); i++) {
             if (i == 0) {
                 String info = "";
-                if (Loader.isModLoaded("NotEnoughItems"))
-                    info = NEIHelper.itemInfoString(stack);
+                //if (Loader.isModLoaded("NotEnoughItems"))
+                //    info = NEIHelper.itemInfoString(stack);
                 list.set(i, stack.getRarity().rarityColor + (String) list.get(i) + info);
             } else
                 list.set(i, EnumChatFormatting.GRAY + (String) list.get(i));
